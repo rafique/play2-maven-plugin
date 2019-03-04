@@ -28,7 +28,7 @@ under the License.
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.google.code.play2-maven-plugin</groupId>
     <artifactId>play2</artifactId>
-    <version>1.0.0-rc4</version>
+    <version>1.0.0-rc41</version>
     <packaging>pom</packaging>
 
     <name>Play! 2.x</name>
@@ -683,6 +683,44 @@ under the License.
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>kazmafia-release</id>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>mig.nexus.snapshots</id>
+                    <url>https://nexus.kazmafia.com/repository/platform-snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>mig.nexus.release</id>
+                    <url>https://nexus.kazmafia.com/repository/platform-release</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.1</version>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 
 </project>
